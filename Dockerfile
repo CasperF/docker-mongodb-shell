@@ -24,7 +24,9 @@ RUN curl -s \
 ENV PATH=/opt/mongodb-shell/bin:$PATH
 
 # Keeping ca-certificates necessary for mongodb-shell
-RUN apt-get remove -y apt-utils curl && apt-get -y autoremove
+RUN apt-get remove -y \
+        apt-utils curl && \
+    apt-get -y autoremove
 
 ENTRYPOINT ["mongo"]
 CMD ["--help"]
